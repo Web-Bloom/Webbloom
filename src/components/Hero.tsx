@@ -1,10 +1,10 @@
 import { ArrowRight } from 'lucide-react';
-import { Language } from '../types';
+import { Language, PageRoute } from '../types';
 import { translations } from '../translations';
 
 interface HeroProps {
   language: Language;
-  onNavigate: (section: string) => void;
+  onNavigate: (page: PageRoute) => void;
 }
 
 export const Hero = ({ language, onNavigate }: HeroProps) => {

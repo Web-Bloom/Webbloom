@@ -4,6 +4,9 @@ interface Translations {
   nav: {
     home: Record<Language, string>;
     services: Record<Language, string>;
+    portfolio: Record<Language, string>;
+    team: Record<Language, string>;
+    testimonials: Record<Language, string>;
     about: Record<Language, string>;
     contact: Record<Language, string>;
   };
@@ -62,12 +65,33 @@ interface Translations {
   footer: {
     tagline: Record<Language, string>;
   };
+  portfolio: {
+    title: Record<Language, string>;
+    subtitle: Record<Language, string>;
+    categories: {
+      all: Record<Language, string>;
+      ecommerce: Record<Language, string>;
+      corporate: Record<Language, string>;
+      restaurants: Record<Language, string>;
+    };
+  };
+  team: {
+    title: Record<Language, string>;
+    subtitle: Record<Language, string>;
+  };
+  testimonials: {
+    title: Record<Language, string>;
+    subtitle: Record<Language, string>;
+  };
 }
 
 export const translations: Translations = {
   nav: {
     home: { en: 'Home', de: 'Startseite' },
     services: { en: 'Services', de: 'Leistungen' },
+    portfolio: { en: 'Portfolio', de: 'Portfolio' },
+    team: { en: 'Team', de: 'Team' },
+    testimonials: { en: 'Testimonials', de: 'Referenzen' },
     about: { en: 'About', de: 'Über uns' },
     contact: { en: 'Contact', de: 'Kontakt' },
   },
@@ -163,6 +187,33 @@ export const translations: Translations = {
     tagline: {
       en: 'Enhancing digital presence for local businesses',
       de: 'Verbesserung der digitalen Präsenz für lokale Unternehmen',
+    },
+  },
+  portfolio: {
+    title: { en: 'Our Portfolio', de: 'Unser Portfolio' },
+    subtitle: {
+      en: 'Explore our recent projects and success stories',
+      de: 'Entdecken Sie unsere neuesten Projekte und Erfolgsgeschichten',
+    },
+    categories: {
+      all: { en: 'All Projects', de: 'Alle Projekte' },
+      ecommerce: { en: 'E-Commerce', de: 'E-Commerce' },
+      corporate: { en: 'Corporate', de: 'Corporate' },
+      restaurants: { en: 'Restaurants', de: 'Restaurants' },
+    },
+  },
+  team: {
+    title: { en: 'Meet Our Team', de: 'Unser Team' },
+    subtitle: {
+      en: 'Passionate professionals dedicated to your success',
+      de: 'Leidenschaftliche Profis, die sich Ihrem Erfolg widmen',
+    },
+  },
+  testimonials: {
+    title: { en: 'What Our Clients Say', de: 'Was unsere Kunden sagen' },
+    subtitle: {
+      en: 'Real feedback from businesses we\'ve helped grow',
+      de: 'Echtes Feedback von Unternehmen, denen wir geholfen haben zu wachsen',
     },
   },
 };
