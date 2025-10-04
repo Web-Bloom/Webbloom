@@ -1,58 +1,58 @@
 import { Globe, Sparkles } from 'lucide-react';
-import { Language, PageRoute } from '../types';
+import { Language } from '../types';
 import { translations } from '../translations';
 
 interface HeaderProps {
   language: Language;
   onLanguageToggle: () => void;
-  onNavigate: (page: PageRoute) => void;
-  currentPage: PageRoute;
+  onNavigate: (section: string) => void;
 }
 
-export const Header = ({ language, onLanguageToggle, onNavigate, currentPage }: HeaderProps) => {
-  const navItems: { key: PageRoute; label: keyof typeof translations.nav }[] = [
-    { key: 'home', label: 'home' },
-    { key: 'portfolio', label: 'portfolio' },
-    { key: 'team', label: 'team' },
-    { key: 'testimonials', label: 'testimonials' },
-    { key: 'contact', label: 'contact' },
+export const Header = ({ language, onLanguageToggle, onNavigate }: HeaderProps) => {
+  const navItems = [
+    { key: 'hero', label: 'home' as const },
+    { key: 'services', label: 'services' as const },
+    { key: 'about', label: 'about' as const },
+    { key: 'contact', label: 'contact' as const },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-effect animate-fadeInUp">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div
-            className="flex items-center space-x-2 cursor-pointer group"
-            onClick={() => onNavigate('home')}
+            className="flex items-center space-x-3 cursor-pointer group"
+            onClick={() => onNavigate('hero')}
           >
-            <Sparkles className="w-8 h-8 text-cyan-600 group-hover:text-cyan-700 transition-colors" />
-            <span className="text-2xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors">WebBloom</span>
+            <div className="relative">
+              <Sparkles className="w-8 h-8 text-cyan-600 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-cyan-400 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-cyan-700 bg-clip-text text-transparent">
+              WebBloom
+            </span>
           </div>
 
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-2">
             {navItems.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => onNavigate(key)}
-                className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                  currentPage === key
-                    ? 'text-cyan-600 bg-cyan-50'
-                    : 'text-gray-700 hover:text-cyan-600 hover:bg-cyan-50/50'
-                }`}
+                className="relative px-5 py-2 text-sm font-medium text-gray-700 hover:text-cyan-600 transition-all duration-300 group"
               >
                 {translations.nav[label][language]}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
           </nav>
 
           <button
             onClick={onLanguageToggle}
-            className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="flex items-center space-x-2 px-4 py-2 rounded-full hover:bg-cyan-50 transition-all duration-300 hover:shadow-lg hover-lift"
             aria-label="Toggle language"
           >
-            <Globe className="w-5 h-5 text-gray-600" />
-            <span className="text-sm font-semibold text-gray-700 uppercase">
+            <Globe className="w-5 h-5 text-cyan-600" />
+            <span className="text-sm font-bold text-gray-700 uppercase">
               {language}
             </span>
           </button>

@@ -40,67 +40,73 @@ export const Contact = ({language}: ContactProps) => {
 
 
     return (
-        <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+        <section id="contact" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-cyan-50/30">
             <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-                        {translations.contact.title[language]}
+                <div className="text-center mb-16 animate-fadeInUp">
+                    <h2 className="text-5xl sm:text-6xl font-bold mb-6">
+                        <span className="bg-gradient-to-r from-gray-900 to-cyan-700 bg-clip-text text-transparent">
+                            {translations.contact.title[language]}
+                        </span>
                     </h2>
                     <p className="text-xl text-gray-600">
                         {translations.contact.subtitle[language]}
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                    <div className="mb-6">
-                        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                            {translations.contact.name[language]}
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={formData.name}
-                            onChange={(e) => setFormData({...formData, name: e.target.value})}
-                            required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all"
-                        />
-                    </div>
+                <form onSubmit={handleSubmit} className="relative animate-fadeInUp animation-delay-200">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-[2rem] blur-2xl"></div>
+                    <div className="relative glass-effect p-10 rounded-[2rem]">
+                        <div className="mb-6">
+                            <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-3">
+                                {translations.contact.name[language]}
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={formData.name}
+                                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                                required
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 bg-white/70"
+                            />
+                        </div>
 
-                    <div className="mb-6">
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                            {translations.contact.email[language]}
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            required
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all"
-                        />
-                    </div>
+                        <div className="mb-6">
+                            <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-3">
+                                {translations.contact.email[language]}
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                required
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 bg-white/70"
+                            />
+                        </div>
 
-                    <div className="mb-6">
-                        <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                            {translations.contact.message[language]}
-                        </label>
-                        <textarea
-                            id="message"
-                            value={formData.message}
-                            onChange={(e) => setFormData({...formData, message: e.target.value})}
-                            required
-                            rows={5}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none"
-                        />
-                    </div>
+                        <div className="mb-8">
+                            <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-3">
+                                {translations.contact.message[language]}
+                            </label>
+                            <textarea
+                                id="message"
+                                value={formData.message}
+                                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                                required
+                                rows={5}
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 resize-none bg-white/70"
+                            />
+                        </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-cyan-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-cyan-700 transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-                    >
-                        <span>{translations.contact.send[language]}</span>
-                        <Send className="w-5 h-5"/>
-                    </button>
+                        <button
+                            type="submit"
+                            className="group relative w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-5 rounded-2xl font-bold hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 flex items-center justify-center space-x-2 overflow-hidden hover-lift btn-ripple"
+                        >
+                            <span className="relative z-10">{translations.contact.send[language]}</span>
+                            <Send className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"/>
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>
