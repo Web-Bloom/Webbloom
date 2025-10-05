@@ -40,24 +40,24 @@ export const Contact = ({language}: ContactProps) => {
 
 
     return (
-        <section id="contact" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-cyan-50/30">
+        <section id="contact" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-cyan-50/30 dark:from-gray-950 dark:to-cyan-950/20">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-16 animate-fadeInUp">
-                    <h2 className="text-5xl sm:text-6xl font-bold mb-6">
-                        <span className="bg-gradient-to-r from-gray-900 to-cyan-700 bg-clip-text text-transparent">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+                        <span className="bg-gradient-to-r from-gray-900 to-cyan-700 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
                             {translations.contact.title[language]}
                         </span>
                     </h2>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
                         {translations.contact.subtitle[language]}
                     </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="relative animate-fadeInUp animation-delay-200">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-[2rem] blur-2xl"></div>
-                    <div className="relative glass-effect p-10 rounded-[2rem]">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 dark:from-cyan-900/10 dark:to-blue-900/10 rounded-[2rem] blur-2xl"></div>
+                    <div className="relative glass-effect dark:bg-gray-900/50 p-10 rounded-[2rem]">
                         <div className="mb-6">
-                            <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-3">
+                            <label htmlFor="name" className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
                                 {translations.contact.name[language]}
                             </label>
                             <input
@@ -66,12 +66,12 @@ export const Contact = ({language}: ContactProps) => {
                                 value={formData.name}
                                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                                 required
-                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 bg-white/70"
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800/50 dark:text-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 dark:focus:ring-cyan-900/50 outline-none transition-all duration-300 bg-white/70"
                             />
                         </div>
 
                         <div className="mb-6">
-                            <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-3">
+                            <label htmlFor="email" className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
                                 {translations.contact.email[language]}
                             </label>
                             <input
@@ -80,12 +80,12 @@ export const Contact = ({language}: ContactProps) => {
                                 value={formData.email}
                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                 required
-                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 bg-white/70"
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800/50 dark:text-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 dark:focus:ring-cyan-900/50 outline-none transition-all duration-300 bg-white/70"
                             />
                         </div>
 
                         <div className="mb-8">
-                            <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-3">
+                            <label htmlFor="message" className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
                                 {translations.contact.message[language]}
                             </label>
                             <textarea

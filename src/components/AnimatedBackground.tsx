@@ -1,7 +1,7 @@
 export const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 dark:from-slate-950 dark:via-gray-950 dark:to-cyan-950/30 transition-colors duration-500"></div>
 
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -116,8 +116,27 @@ export const AnimatedBackground = () => {
         </g>
       </svg>
 
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-200/20 to-blue-200/20 rounded-full blur-3xl animate-pulse-slow"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tr from-teal-200/20 to-cyan-200/20 rounded-full blur-3xl animate-pulse-slow animation-delay-2000"></div>
+      <div className="absolute top-[15%] left-[10%] w-64 h-64 bg-gradient-to-br from-cyan-200/20 to-blue-200/20 dark:from-cyan-500/10 dark:to-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute bottom-[25%] right-[15%] w-80 h-80 bg-gradient-to-tr from-teal-200/20 to-cyan-200/20 dark:from-teal-500/10 dark:to-cyan-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-2000"></div>
+
+      <div className="absolute top-[60%] left-[5%] w-48 h-48 bg-gradient-to-br from-blue-200/15 to-cyan-200/15 dark:from-blue-500/8 dark:to-cyan-500/8 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+      <div className="absolute top-[30%] right-[8%] w-56 h-56 bg-gradient-to-tr from-cyan-200/15 to-teal-200/15 dark:from-cyan-500/8 dark:to-teal-500/8 rounded-full blur-3xl animate-pulse-slow animation-delay-3000"></div>
+
+      <svg className="absolute hidden md:block top-[10%] right-[20%] opacity-10 dark:opacity-5" width="120" height="120">
+        <polygon points="60,10 90,90 30,50 90,50 30,90" fill="currentColor" className="text-cyan-400 animate-spin-slow" />
+      </svg>
+
+      <svg className="absolute hidden md:block bottom-[15%] left-[25%] opacity-10 dark:opacity-5" width="100" height="100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-400">
+          <animate attributeName="r" values="35;45;35" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400">
+          <animate attributeName="r" values="25;15;25" dur="4s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+
+      <div className="absolute hidden lg:block top-[50%] right-[5%] w-32 h-32 border-4 border-cyan-200/20 dark:border-cyan-500/10 rounded-lg animate-spin-slow"></div>
+      <div className="absolute hidden lg:block top-[20%] left-[15%] w-24 h-24 border-4 border-blue-200/20 dark:border-blue-500/10 rounded-full animation-delay-2000" style={{ animation: 'spin-slow 25s linear infinite reverse' }}></div>
     </div>
   );
 };

@@ -14,10 +14,10 @@ export const Benefits = ({ language }: BenefitsProps) => {
   ];
 
   return (
-    <section className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white via-cyan-50/20 to-white">
+    <section className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white via-cyan-50/20 to-white dark:from-gray-950 dark:via-cyan-950/10 dark:to-gray-950">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl sm:text-6xl font-bold mb-20 text-center">
-          <span className="bg-gradient-to-r from-gray-900 to-cyan-700 bg-clip-text text-transparent">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-20 text-center">
+          <span className="bg-gradient-to-r from-gray-900 to-cyan-700 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
             {translations.benefits.title[language]}
           </span>
         </h2>
@@ -36,10 +36,10 @@ export const Benefits = ({ language }: BenefitsProps) => {
                     <Icon className="w-10 h-10 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-cyan-700 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto">
                   {benefit.desc}
                 </p>
               </div>

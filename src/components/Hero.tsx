@@ -9,26 +9,26 @@ interface HeroProps {
 
 export const Hero = ({ language, onNavigate }: HeroProps) => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-        <div className="text-[20rem] font-bold text-gray-300 select-none">WB</div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 overflow-hidden pt-20">
+      <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-10 pointer-events-none">
+        <div className="text-[20rem] font-bold text-gray-300 dark:text-gray-700 select-none">WB</div>
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 mb-8 animate-fadeInScale">
-          <Sparkles className="w-4 h-4 text-cyan-600" />
-          <span className="text-sm font-semibold text-cyan-700">
+        <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/30 border border-cyan-100 dark:border-cyan-800 mb-8 animate-fadeInScale">
+          <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+          <span className="text-sm font-semibold text-cyan-700 dark:text-cyan-300">
             {language === 'en' ? 'Transform Your Business' : 'Transformieren Sie Ihr Geschäft'}
           </span>
         </div>
 
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fadeInUp">
-          <span className="bg-gradient-to-r from-gray-900 via-cyan-800 to-blue-900 bg-clip-text text-transparent">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fadeInUp">
+          <span className="bg-gradient-to-r from-gray-900 via-cyan-800 to-blue-900 dark:from-white dark:via-cyan-300 dark:to-blue-300 bg-clip-text text-transparent">
             {translations.hero.title[language]}
           </span>
         </h1>
 
-        <p className="text-xl sm:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto animate-fadeInUp animation-delay-200">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto animate-fadeInUp animation-delay-200">
           {translations.hero.subtitle[language]}
         </p>
 
@@ -44,37 +44,37 @@ export const Hero = ({ language, onNavigate }: HeroProps) => {
 
           <button
             onClick={() => onNavigate('about')}
-            className="group inline-flex items-center space-x-2 px-8 py-4 rounded-full text-lg font-semibold text-gray-700 border-2 border-gray-300 hover:border-cyan-500 hover:text-cyan-600 transition-all duration-300 hover-lift"
+            className="group inline-flex items-center space-x-2 px-8 py-4 rounded-full text-lg font-semibold text-gray-700 dark:text-gray-300 border-2 border-gray-300 dark:border-gray-600 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 hover-lift"
           >
             <span>{language === 'en' ? 'Learn More' : 'Mehr erfahren'}</span>
           </button>
         </div>
 
-        <div className="mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-fadeInUp animation-delay-500">
+        <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto animate-fadeInUp animation-delay-500">
           <div className="group">
-            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
               50+
             </div>
-            <div className="text-sm text-gray-600">{language === 'en' ? 'Projects' : 'Projekte'}</div>
+            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Projects' : 'Projekte'}</div>
           </div>
           <div className="group">
-            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
               100%
             </div>
-            <div className="text-sm text-gray-600">{language === 'en' ? 'Satisfaction' : 'Zufriedenheit'}</div>
+            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Satisfaction' : 'Zufriedenheit'}</div>
           </div>
           <div className="group">
-            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
               24/7
             </div>
-            <div className="text-sm text-gray-600">{language === 'en' ? 'Support' : 'Support'}</div>
+            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Support' : 'Support'}</div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-pulse"></div>
+      <div className="hidden sm:block absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600 rounded-full animate-pulse"></div>
         </div>
       </div>
     </section>

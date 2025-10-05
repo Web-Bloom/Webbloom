@@ -18,12 +18,12 @@ export const Services = ({ language }: ServicesProps) => {
     <section id="services" className="py-32 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-5xl sm:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-900 to-cyan-700 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 to-cyan-700 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
               {translations.services.title[language]}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {translations.services.subtitle[language]}
           </p>
         </div>
@@ -34,20 +34,20 @@ export const Services = ({ language }: ServicesProps) => {
             return (
               <div
                 key={index}
-                className={`group relative bg-white/50 backdrop-blur-sm p-10 rounded-3xl border border-gray-100 hover:border-cyan-200 transition-all duration-500 hover-lift animate-fadeInScale ${service.delay}`}
+                className={`group relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-cyan-200 dark:hover:border-cyan-800 transition-all duration-500 hover-lift animate-fadeInScale ${service.delay}`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="relative w-16 h-16 mb-6">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-cyan-600 transition-transform duration-300 group-hover:scale-110" />
+                      <Icon className="w-8 h-8 text-cyan-600 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-110" />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-cyan-700 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
