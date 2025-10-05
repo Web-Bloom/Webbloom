@@ -15,7 +15,7 @@ export const Services = ({ language }: ServicesProps) => {
   ];
 
   return (
-    <section id="services" className="py-32 px-6 lg:px-8">
+      <section id="services" className="pt-12 pb-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">

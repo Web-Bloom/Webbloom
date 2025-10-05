@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 relative overflow-x-hidden transition-colors duration-500">
+      <div className="min-h-screen relative overflow-hidden">
       <AnimatedBackground />
       <Header
         language={language}
