@@ -14,8 +14,11 @@ export const Contact = ({language}: ContactProps) => {
         message: '',
     });
 
+    const [loading, setLoading] = useState(false);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             await fetch("https://script.google.com/macros/s/AKfycbysR3TfsqHPd3_biXxergPZSvH8VFJxdysBxMiMLr2wl2OQ_x9uKBY7011P_x5IKqqBNg/exec", {
@@ -32,12 +35,12 @@ export const Contact = ({language}: ContactProps) => {
             alert("Danke für ihre Nachricht, wir melden uns in den kommenden Tagen bei Ihnen!");
             setFormData({name: "", email: "", message: ""});
         } catch (err) {
-
             console.error(err);
             alert("Failed to send message.");
+        } finally {
+            setLoading(false);
         }
     };
-
 
     return (
         <section id="contact" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-cyan-50/30 dark:from-gray-950 dark:to-cyan-950/20">
@@ -92,20 +95,51 @@ export const Contact = ({language}: ContactProps) => {
                                 id="message"
                                 value={formData.message}
                                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                                required
                                 rows={5}
-                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all duration-300 resize-none bg-white/70"
+                                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800/50 dark:text-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 dark:focus:ring-cyan-900/50 outline-none transition-all duration-300 bg-white/70"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="group relative w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-5 rounded-2xl font-bold hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 flex items-center justify-center space-x-2 overflow-hidden hover-lift btn-ripple"
+                            disabled={loading}
+                            className={`group relative w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-5 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 overflow-hidden hover-lift btn-ripple ${
+                                loading ? 'opacity-80 cursor-not-allowed' : 'hover:shadow-2xl hover:shadow-cyan-500/50'
+                            }`}
                         >
-                            <span className="relative z-10">{translations.contact.send[language]}</span>
-                            <Send className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"/>
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            {loading ? (
+                                <>
+                                    <svg
+                                        className="animate-spin h-5 w-5 text-white"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <circle
+                                            className="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            strokeWidth="4"
+                                        ></circle>
+                                        <path
+                                            className="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                        ></path>
+                                    </svg>
+                                    <span className="relative z-10">{translations.contact.sending?.[language] || "Sending..."}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span className="relative z-10">{translations.contact.send[language]}</span>
+                                    <Send className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </>
+                            )}
                         </button>
+
                     </div>
                 </form>
             </div>

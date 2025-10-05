@@ -52,23 +52,25 @@ export const Hero = ({ language, onNavigate }: HeroProps) => {
 
         <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto animate-fadeInUp animation-delay-500">
           <div className="group">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
-              50+
-            </div>
-            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Projects' : 'Projekte'}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+                  100%
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Satisfaction' : 'Zufriedenheit'}</div>
           </div>
-          <div className="group">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
-              100%
+            <div className="group">
+                <div
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+                    {language === 'en' ? 'No' : 'Keine'}
+                </div>
+                <div
+                    className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Hidden Costs' : 'Versteckte Kosten'}</div>
             </div>
-            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Satisfaction' : 'Zufriedenheit'}</div>
-          </div>
-          <div className="group">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
-              24/7
+            <div className="group">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 transition-all duration-300 group-hover:scale-110">
+                    24/7
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Support' : 'Support'}</div>
             </div>
-            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{language === 'en' ? 'Support' : 'Support'}</div>
-          </div>
         </div>
       </div>
 

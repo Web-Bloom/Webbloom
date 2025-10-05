@@ -58,6 +58,7 @@ interface Translations {
     email: Record<Language, string>;
     message: Record<Language, string>;
     send: Record<Language, string>;
+    sending: Record<Language, string>;
   };
   footer: {
     tagline: Record<Language, string>;
@@ -158,6 +159,7 @@ export const translations: Translations = {
     email: { en: 'Your Email', de: 'Ihre E-Mail' },
     message: { en: 'Tell us about your business', de: 'Erzählen Sie uns von Ihrem Unternehmen' },
     send: { en: 'Send Message', de: 'Nachricht senden' },
+      sending: {en: "Sending...", de: "Übermittle Nachricht..."}
   },
   footer: {
     tagline: {
