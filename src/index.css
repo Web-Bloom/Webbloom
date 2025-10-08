@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Simple one-time entrance animations */
+/* --- Consistent text rendering across languages --- */
+html {
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- One-time animations --- */
 @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeInScale {
     0% { opacity: 0; transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1); }
@@ -16,23 +22,36 @@
 .animate-fadeInUp {
     animation: fadeInUp 0.8s ease-out forwards;
 }
-
 .animate-fadeInScale {
     animation: fadeInScale 0.8s ease-out forwards;
 }
 
-/* Optional delays */
 .animation-delay-100 { animation-delay: 0.1s; }
 .animation-delay-200 { animation-delay: 0.2s; }
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
 
-/* Utility for hover lift */
+/* --- Hover lift effect --- */
 .hover-lift {
     transform: translateY(0);
     transition: transform 0.3s ease;
 }
 .hover-lift:hover {
     transform: translateY(-4px);
+}
+
+/* --- Optional: ripple or custom effects --- */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+.btn-ripple::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0.3;
+    background: white;
+    animation: none;
 }
