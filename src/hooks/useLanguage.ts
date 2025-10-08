@@ -2,18 +2,31 @@ import { useState, useEffect } from 'react';
 import { Language } from '../types';
 
 export const useLanguage = () => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const browserLang = navigator.language.toLowerCase();
-    return browserLang.startsWith('de') ? 'de' : 'en';
-  });
+    const getDefaultLanguage = (): Language => {
+        // 1️⃣ Check localStorage first
+        const stored = localStorage.getItem('language') as Language | null;
+        if (stored === 'de' || stored === 'en') return stored;
 
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
+        // 2️⃣ Try navigator.languages array for better accuracy
+        const langs = navigator.languages?.map(l => l.toLowerCase()) || [];
+        const browserLang =
+            langs.find(l => l.startsWith('de')) ||
+            navigator.language?.toLowerCase() ||
+            'en';
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'de' : 'en'));
-  };
+        return browserLang.startsWith('de') ? 'de' : 'en';
+    };
 
-  return { language, toggleLanguage };
+    const [language, setLanguage] = useState<Language>(getDefaultLanguage);
+
+    useEffect(() => {
+        document.documentElement.lang = language;
+        localStorage.setItem('language', language);
+    }, [language]);
+
+    const toggleLanguage = () => {
+        setLanguage(prev => (prev === 'en' ? 'de' : 'en'));
+    };
+
+    return { language, toggleLanguage };
 };

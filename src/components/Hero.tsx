@@ -9,7 +9,10 @@ interface HeroProps {
 
 export const Hero = ({ language, onNavigate }: HeroProps) => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 overflow-hidden pt-20">
+      <section
+          id="hero"
+          className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 overflow-hidden pt-28 sm:pt-24 md:pt-20"
+      >
       <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-10 pointer-events-none">
         <div className="text-[20rem] font-bold text-gray-300 dark:text-gray-700 select-none">WB</div>
       </div>
