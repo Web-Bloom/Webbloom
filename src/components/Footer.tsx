@@ -1,36 +1,115 @@
-import { Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
+import logo from '../assets/logo.svg';
 
 interface FooterProps {
-  language: Language;
+    language: Language;
 }
 
 export const Footer = ({ language }: FooterProps) => {
-  return (
-    <footer className="relative bg-gradient-to-b from-slate-900 to-gray-900 text-white py-16 px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
+    const currentYear = new Date().getFullYear();
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col items-center space-y-6">
-          <div className="flex items-center space-x-3 group">
-            <Sparkles className="w-8 h-8 text-cyan-400 transition-transform duration-300 group-hover:rotate-12" />
-            <span className="text-3xl font-bold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
+    return (
+        <footer
+            id="footer"
+            className="relative bg-gradient-to-b from-slate-900 to-gray-900 text-white py-20 px-6 lg:px-8 overflow-hidden"
+        >
+            {/* Background glow */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute -top-16 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-16 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+            </div>
+
+            {/* Wrapper */}
+            <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:items-start md:text-left md:justify-between">
+                {/* Contact */}
+                <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left space-y-2">
+                    <h3 className="text-lg font-semibold text-cyan-400 uppercase tracking-wide mb-2">
+                        {language === 'en' ? 'Contact' : 'Kontakt'}
+                    </h3>
+                    <address className="not-italic text-gray-300 space-y-1 leading-relaxed">
+                        <p>1210 Wien / Vienna</p>
+                        <p>
+                            <a
+                                href="mailto:info@webbloom.de"
+                                className="hover:text-cyan-400 transition-colors"
+                            >
+                                info@webbloom.de
+                            </a>
+                        </p>
+                        <p>
+                            <a
+                                href="tel:+4915123456789"
+                                className="hover:text-cyan-400 transition-colors"
+                            >
+                                +49 151 234 56789
+                            </a>
+                        </p>
+                    </address>
+                </div>
+
+                {/* Center Logo / Brand */}
+                <div className="w-full md:w-1/3 flex flex-col items-center justify-center text-center mt-12 md:mt-0">
+                    <button
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="flex items-center gap-3 group mb-3"
+                    >
+                        <img
+                            src={logo}
+                            alt="WebBloom logo"
+                            className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
               WebBloom
             </span>
-          </div>
-          <p className="text-gray-400 text-center text-lg">
-            {translations.footer.tagline[language]}
-          </p>
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} WebBloom. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
+                    </button>
+                    <p className="text-gray-400 text-base leading-relaxed max-w-sm">
+                        {translations.footer.tagline[language]}
+                    </p>
+                </div>
+
+                {/* Quick Links */}
+                <div className="w-full md:w-1/3 flex flex-col items-center md:items-end text-center md:text-right space-y-2">
+                    <h3 className="text-lg font-semibold text-cyan-400 uppercase tracking-wide mb-2">
+                        {language === 'en' ? 'Quick Links' : 'Schnellzugriff'}
+                    </h3>
+                    <ul className="space-y-1 text-gray-300">
+                        <li>
+                            <a href="#hero" className="hover:text-cyan-400 transition-colors">
+                                {translations.nav.home[language]}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" className="hover:text-cyan-400 transition-colors">
+                                {translations.nav.services[language]}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" className="hover:text-cyan-400 transition-colors">
+                                {translations.nav.about[language]}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" className="hover:text-cyan-400 transition-colors">
+                                {translations.nav.contact[language]}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Divider */}
+            <div className="relative z-10 max-w-7xl mx-auto mt-14 border-t border-gray-800" />
+
+            {/* Bottom note */}
+            <div className="relative z-10 max-w-7xl mx-auto pt-6 text-center text-gray-500 text-sm">
+                <p>
+                    © {currentYear} WebBloom. All rights reserved. |{' '}
+                    <a href="mailto:info@webbloom.de" className="text-cyan-400 hover:underline">
+                        info@webbloom.de
+                    </a>
+                </p>
+            </div>
+        </footer>
+    );
 };

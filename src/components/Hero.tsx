@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../translations';
 
@@ -62,30 +62,31 @@ export const Hero = ({ language, onNavigate }: HeroProps) => {
                         animateOnce ? 'animate-fadeInUp animation-delay-300' : ''
                     }`}
                 >
+                    {/* Primary Button */}
                     <button
                         onClick={() => onNavigate('contact')}
-                        className="group relative inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover-lift btn-ripple h-[3.5rem]"
+                        className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover-lift btn-ripple min-h-[3.5rem] w-full sm:w-auto min-w-[12rem]"
                     >
                         <span className="relative z-10">{translations.hero.cta[language]}</span>
-                        <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </button>
 
+                    {/* Secondary Button */}
                     <button
                         onClick={() => onNavigate('about')}
-                        className="group inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full text-lg font-semibold text-gray-700 dark:text-gray-300 border-2 border-gray-300 dark:border-gray-600 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 hover-lift h-[3.5rem]"
+                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 hover-lift min-h-[3.5rem] w-full sm:w-auto min-w-[12rem]"
                     >
-                        <span>{language === 'en' ? 'Learn More' : 'Mehr erfahren'}</span>
+                        <span className="relative z-10">{language === 'en' ? 'Learn More' : 'Mehr erfahren'}</span>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </button>
                 </div>
+
+
             </div>
 
-            {/* Scroll indicator */}
-            <div className="hidden sm:block absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-                <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center p-2">
-                    <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600 rounded-full animate-pulse"></div>
-                </div>
-            </div>
+
+
+
         </section>
     );
 };
