@@ -1,6 +1,6 @@
 import { Language } from '../types';
 import { translations } from '../translations';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 interface FooterProps {
     language: Language;
@@ -31,18 +31,18 @@ export const Footer = ({ language }: FooterProps) => {
                         <p>1210 Wien / Vienna</p>
                         <p>
                             <a
-                                href="mailto:info@webbloom.de"
+                                href="mailto:TODO"
                                 className="hover:text-cyan-400 transition-colors"
                             >
-                                info@webbloom.de
+                                lukas.brainovic@web-bloom.com
                             </a>
                         </p>
                         <p>
                             <a
-                                href="tel:+4915123456789"
+                                href="tel:+436766773780"
                                 className="hover:text-cyan-400 transition-colors"
                             >
-                                +49 151 234 56789
+                                +43 676 6773780
                             </a>
                         </p>
                     </address>
@@ -56,7 +56,7 @@ export const Footer = ({ language }: FooterProps) => {
                     >
                         <img
                             src={logo}
-                            alt="WebBloom logo"
+alt="WebBloom logo – Web design and SEO for small businesses"
                             className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
                         />
                         <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
@@ -105,8 +105,8 @@ export const Footer = ({ language }: FooterProps) => {
             <div className="relative z-10 max-w-7xl mx-auto pt-6 text-center text-gray-500 text-sm">
                 <p>
                     © {currentYear} WebBloom. All rights reserved. |{' '}
-                    <a href="mailto:info@webbloom.de" className="text-cyan-400 hover:underline">
-                        info@webbloom.de
+                    <a href="mailto:lukas.brainovic@web-bloom.com" className="text-cyan-400 hover:underline">
+                        lukas.brainovic@web-bloom.com
                     </a>
                 </p>
             </div>

@@ -4,6 +4,7 @@ import {Theme} from '../hooks/useTheme';
 import {translations} from '../translations';
 import clsx from 'clsx';
 import ReactCountryFlag from "react-country-flag";
+import logo from '../assets/logo.png';
 
 interface HeaderProps {
     language: Language;
@@ -44,8 +45,8 @@ export const Header = ({
                         onClick={() => onNavigate('hero')}
                     >
                         <img
-                            src="/src/assets/logo.svg"
-                            alt="WebBloom logo"
+                            src={logo}
+alt="WebBloom logo – Web design and SEO for small businesses"
                             className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
                         />
                         <span
@@ -92,9 +93,9 @@ export const Header = ({
                             aria-label="Toggle language"
                         >
                             {language === 'en' ? (
-                                <ReactCountryFlag countryCode="DE" svg style={{width: '1em', height: '1em'}}/>
-                            ) : (
                                 <ReactCountryFlag countryCode="GB" svg style={{width: '1em', height: '1em'}}/>
+                            ) : (
+                                <ReactCountryFlag countryCode="DE" svg style={{width: '1em', height: '1em'}}/>
                             )}
                         </button>
 
