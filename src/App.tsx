@@ -76,7 +76,7 @@ function App() {
                         "@type": "Organization",
                         name: "WebBloom",
                         url: "https://web-bloom.com",
-                        logo: "https://web-bloom.com/logo.png",
+                        logo: "https://web-bloom.com/logo.webp",
                         sameAs: [
                             "https://www.linkedin.com/company/webbloom",
                             "https://www.instagram.com/webbloom",

@@ -4,7 +4,7 @@ import {Theme} from '../hooks/useTheme';
 import {translations} from '../translations';
 import clsx from 'clsx';
 import ReactCountryFlag from "react-country-flag";
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 interface HeaderProps {
     language: Language;

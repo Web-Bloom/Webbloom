@@ -1,6 +1,6 @@
 import { Language } from '../types';
 import { translations } from '../translations';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 interface FooterProps {
     language: Language;
